@@ -10,8 +10,8 @@ public:
 
   short str_to_int() {
     short code = 0;
-    for (char chr : name) {
-      code += (short)chr;
+    for (short index = 0; name[index]; index++) {
+      code += ((short)name[index]) * (index + 1);
     }
     return code;
   }

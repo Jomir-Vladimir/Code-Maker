@@ -1,10 +1,9 @@
 #include "core.hpp"
 #include "consolOutput.hpp"
+#include "stringToCommand.hpp"
 
 int main (int argc, char *argv[]){
-  Command command;
-  command.name = argv[1];
-  Core core(ConsolOutput, command);
-  core.execute();
+  Core core(ConsolOutput);
+  core.execute(toCommand(argv, argc));
   return 0;
 }

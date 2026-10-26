@@ -1,15 +1,29 @@
 cmake_minimum_required(VERSION 4.4)
 
-project(Code-Maker)
+##uiu
+project(Foton-editor)
+
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
-add_executable(cmaker main.cpp)
+
+add_executable(foton main.cpp)
+
 
 add_library(consolOutput STATIC ${CMAKE_CURRENT_SOURCE_DIR}/adapters/source/consolOutput.cpp)
 
+add_library(stringToCommand STATIC ${CMAKE_CURRENT_SOURCE_DIR}/utilities/source/stringToCommand.cpp)
+
+
 target_include_directories(consolOutput PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/adapters/include)
 
-target_link_libraries(cmaker PRIVATE consolOutput)
+target_include_directories(stringToCommand PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/utilities/include)
 
-target_include_directories(cmaker PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/core)
+target_include_directories(stringToCommand PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/domain)
+
+
+target_link_libraries(foton PRIVATE consolOutput)
+
+target_link_libraries(foton PRIVATE stringToCommand)
+
+target_include_directories(foton PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/core)
