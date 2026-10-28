@@ -1,0 +1,2 @@
+file(qwerty.txt)
+dir(asd)

@@ -29,7 +29,7 @@
     /// simple editor ///
 
 #include "../domain/command.hpp"
-
+#include "iostream"
 class Core {
 private:
   //// Ports ////
@@ -43,7 +43,7 @@ public:
   void execute(ioCommand inCommand){
     for (exeCommand exe_Command : *exeCommands){
       if (inCommand.name == exe_Command.name){
-        exe_Command.function(inCommand.arguments);
+        std::cout << exe_Command.function(inCommand.arguments) << "\n" << inCommand.arguments.size();
       }
     }
   } 

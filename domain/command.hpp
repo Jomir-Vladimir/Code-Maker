@@ -10,5 +10,5 @@ struct ioCommand {
 
 struct exeCommand {
   std::string name;
-  bool (*function)(std::vector <std::string>);
+  int (*function)(std::vector <std::string>);
 };

@@ -1,4 +1,4 @@
 #include "../../domain/command.hpp"
 #include <cstdint>
 
-Command toCommand (char *table[], int count);
+ioCommand toCommand (char *table[], int count);
